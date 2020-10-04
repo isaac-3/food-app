@@ -2,3 +2,27 @@
     background-color: rosybrown;
     height: 100vh;
 }
+
+.category__cont{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cat__dish{
+    flex: 1 0 14%;
+    cursor: pointer;
+    margin: 8px 0 8px 0;
+}
+
+.cat__dish img{
+    width: auto;
+    max-width: 150px;
+    height: auto;
+    max-height: 100px;
+    border-radius: 10px;
+}
+
+.cat__txt{
+    max-width: fit-content;
+}

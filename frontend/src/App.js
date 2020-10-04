@@ -7,15 +7,7 @@ import Category from './components/Category';
 import Meal from './components/Meal';
 
 function App() {
-
-  const getfood = () => {
-    fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=52959")
-    .then(res=>res.json())
-    .then(res => {
-      console.log(res)
-    })
-  }
-
+  
   return (
     <div className="App">
       <NavBar/>
