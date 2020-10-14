@@ -1,5 +1,12 @@
 $primaryColor: #EAE2B7;
+$secondaryColor: #D62828;
+$blueColor: #003049;
+$orangeColor: #F77F00;
+
 $containerHeight: 92vh;
+
+$navBarText: whitesmoke;
+$primaryFont: 'Poppins', sans-serif;
 
 @mixin flexCenter {
     display: flex;
@@ -14,7 +21,7 @@ $containerHeight: 92vh;
 @mixin cards {
     flex: 0 0 25%;
     cursor: pointer;
-    color: #D62828;
+    color: $secondaryColor;
     font-weight: bolder;
     padding: 4px;
     text-align: center;
@@ -32,77 +39,53 @@ $containerHeight: 92vh;
 }
 
 .App{
+
     .navbar__cont{
-        background-color: #003049;
+        background-color:  $blueColor;
         height: 8vh;
 
         .navbar{
             display: flex;
             justify-content: space-around;
-            font-family: 'Poppins', sans-serif;
+            font-family: $primaryFont;
+            
+            h1{
+                color: $secondaryColor;
+            }
+
+            button{
+                color: $navBarText;
+            }
+            
+            .navbar__right{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .overlay-effect{
+                    
+                    button{
+                        font-family: $primaryFont;
+                        font-weight: bolder;
+                        margin-right: 4px;
+                        border: 1px solid $navBarText;
+                        color: $navBarText;
+                        border-radius: 20px;
+                        transition: .5s ease-in-out;
+                        background-color: transparent;
+                        // overflow:hidden;
+                    }
+
+                    &:hover button {
+                        cursor: pointer;
+                        background-color: $secondaryColor;
+                    }
+                }
+            }
         }
     }
     
     .navbar > div{
-        margin-top: 2vh;
-        margin-bottom: 2vh;
-    }
-    
-    .navbar__right{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        .overlay-effect{
-            
-            button{
-                margin-right: 4px;
-                border: 1px solid whitesmoke;
-                color: whitesmoke;
-                border-radius: 20px;
-                // background-color: transparent;
-                opacity: 0;
-                transition: .5s ease;
-                background-color: rgba(259, 67, 95, 0.7);
-                // overflow:hidden;
-            }
-
-            &:hover button {
-                opacity: 1;
-                cursor: pointer;
-            }
-            
-            // background: linear-gradient(to left, transparent 50%, #EAE2B7 50%) right;
-            // background-size: 200%;
-            // transition: .5s ease-out;
-
-            // &:hover .overlay-effect{
-            //     opacity: 1;
-            //     cursor: pointer;
-            //     // .overlay-effect {
-            //         position: absolute;
-            //         top: 0;
-            //         bottom: 0;
-            //         left: 0;
-            //         right: 0;
-            //         opacity: 0;
-            //         transition: .5s ease;
-            //         background-color: rgba(259, 67, 95, 0.7);
-            //         overflow:hidden;
-            //     //   }
-            // }
-            // .overlay-effect {
-                // position: absolute;
-                // top: 0;
-                // bottom: 0;
-                // left: 0;
-                // right: 0;
-                // opacity: 0;
-                // transition: .5s ease;
-                // background-color: rgba(259, 67, 95, 0.7);
-                // overflow:hidden;
-            //   }
-        }
-        
+        margin-top: 8px;
     }
 
     .body{
@@ -136,7 +119,7 @@ $containerHeight: 92vh;
                 @include imgProps(150px, 100px, 10px);
             }
             p{
-                font-family: 'Poppins', sans-serif;
+                font-family: $primaryFont;
             }
         }
     }
@@ -165,7 +148,7 @@ $containerHeight: 92vh;
 
                 p{
                     max-width: fit-content;
-                    font-family: 'Poppins', sans-serif;
+                    font-family: $primaryFont;
                     margin-left: auto;
                     margin-right: auto;
                 }
@@ -182,7 +165,7 @@ $containerHeight: 92vh;
             text-align: center;
             .page-item {
                 cursor: pointer;
-                background-color:#003049;
+                background-color: $blueColor;
                 border: 1px solid black;
                 color: whitesmoke;
                 width: 20px;
@@ -195,6 +178,68 @@ $containerHeight: 92vh;
                 }
             }
         }
+    }
+
+    .meal{
+        height: $containerHeight;
+        background-color:$primaryColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .meal__header{
+            padding-top: 24px;
+            text-align: center;
+            font-family: $primaryFont;
+            display: flex;
+            justify-content: center;
+            
+            img{
+                @include imgProps(350px, 300px, 10px);
+                flex: 1;
+            }
+
+            .meal__info{
+                margin-left: 16px;
+                .cat__span{
+                    color: $secondaryColor;
+                }
+                a{
+                    text-decoration: none;
+                    color: $blueColor;
+                }
+                .meal__opts{
+                    font-weight: bolder;
+                    color: $blueColor;
+                    button{
+                        margin-left: 4px;
+                    }
+                }
+            }
+
+        }
+
+        .meal__details{
+            // padding-top: 8px;
+            display: flex;
+            justify-content: space-evenly;
+            font-family: $primaryFont;
+
+            .meal__instructions{
+                width: 50%;
+            }
+
+            .meal__ingredients{
+                p{
+                    color: $blueColor;
+                }
+                span{
+                    color: $secondaryColor;
+                    font-weight: bolder;
+                }
+            }
+        }
+
     }
 
 }
