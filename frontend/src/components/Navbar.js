@@ -15,17 +15,17 @@ const NavBar = () => {
                     </IconButton>
                 </div>
                 <div className="navbar__right">
-                <div>
+                <div className="overlay-effect">
                     <Button>
-                        <PersonRoundedIcon />
+                        <PersonRoundedIcon style={{fontSize: "16px"}}/>
                         LOGIN
                     </Button>
                 </div>
-                <div className="divider"></div>
-                <div>
+                {/* <div className="divider"></div> */}
+                <div className="overlay-effect">
                     <Button>
                         LOGOUT
-                        <PersonOutlineRoundedIcon />
+                        <PersonOutlineRoundedIcon style={{fontSize: "16px"}}/>
                     </Button>
                 </div>
                 </div>

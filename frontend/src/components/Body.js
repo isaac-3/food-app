@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './Body.css'
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { IconButton } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
@@ -32,7 +31,7 @@ const Body = () => {
             </div>
             <div className="body__cats">
                 {cats.map(cat=>(
-                    <Link to={`/category/${cat.strCategory}`}>
+                    <Link to={`/category/${cat.strCategory}`} style={{ textDecoration: 'none' }}>
                         <div className="body__cats__indiv" key={cat.idCategory}>
                             <img src={cat.strCategoryThumb} alt="category"/>
                             <p>{cat.strCategory}</p>
