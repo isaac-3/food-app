@@ -1,0 +1,200 @@
+$primaryColor: #EAE2B7;
+$containerHeight: 92vh;
+
+@mixin flexCenter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 18%;
+    padding-right: 18%;
+    padding-top: 20px;
+}
+
+@mixin cards {
+    flex: 0 0 25%;
+    cursor: pointer;
+    color: #D62828;
+    font-weight: bolder;
+    padding: 4px;
+    text-align: center;
+    background-color: #fff5d6;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+@mixin imgProps($maxWidth, $maxHeight, $borderRad) {
+    width: auto;
+    max-width: $maxWidth;
+    height: auto;
+    max-height: $maxHeight;
+    border-radius: $borderRad;
+}
+
+.App{
+    .navbar__cont{
+        background-color: #003049;
+        height: 8vh;
+
+        .navbar{
+            display: flex;
+            justify-content: space-around;
+            font-family: 'Poppins', sans-serif;
+        }
+    }
+    
+    .navbar > div{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+    
+    .navbar__right{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .overlay-effect{
+            
+            button{
+                margin-right: 4px;
+                border: 1px solid whitesmoke;
+                color: whitesmoke;
+                border-radius: 20px;
+                // background-color: transparent;
+                opacity: 0;
+                transition: .5s ease;
+                background-color: rgba(259, 67, 95, 0.7);
+                // overflow:hidden;
+            }
+
+            &:hover button {
+                opacity: 1;
+                cursor: pointer;
+            }
+            
+            // background: linear-gradient(to left, transparent 50%, #EAE2B7 50%) right;
+            // background-size: 200%;
+            // transition: .5s ease-out;
+
+            // &:hover .overlay-effect{
+            //     opacity: 1;
+            //     cursor: pointer;
+            //     // .overlay-effect {
+            //         position: absolute;
+            //         top: 0;
+            //         bottom: 0;
+            //         left: 0;
+            //         right: 0;
+            //         opacity: 0;
+            //         transition: .5s ease;
+            //         background-color: rgba(259, 67, 95, 0.7);
+            //         overflow:hidden;
+            //     //   }
+            // }
+            // .overlay-effect {
+                // position: absolute;
+                // top: 0;
+                // bottom: 0;
+                // left: 0;
+                // right: 0;
+                // opacity: 0;
+                // transition: .5s ease;
+                // background-color: rgba(259, 67, 95, 0.7);
+                // overflow:hidden;
+            //   }
+        }
+        
+    }
+
+    .body{
+        background-color: $primaryColor;
+        height: $containerHeight;
+        text-align: center;
+        .body__search_box{
+            padding-top: 24px;
+            input{
+                outline-width: 0;
+                border-radius: 30px;
+                padding: 10px;
+                border: none;
+            }
+            button{
+                border: none;
+                outline-width: 0;
+                color: #65baff;
+            }
+        }
+        
+        .body__cats{
+            @include flexCenter();
+        }
+        
+        .body__cats__indiv{
+            @include cards();
+            margin: 16px 8px 16px 8px;
+
+            img{
+                @include imgProps(150px, 100px, 10px);
+            }
+            p{
+                font-family: 'Poppins', sans-serif;
+            }
+        }
+    }
+
+    .category{
+        background-color: $primaryColor;
+        height: $containerHeight;
+        display: flex;
+        flex-direction: column;
+
+        .category__cont{
+            flex: 1;
+            @include flexCenter();
+            
+            .cat__dish{
+                @include cards();
+                
+                img{
+                    @include imgProps(250px, 200px, 50%);
+
+                    &:hover{
+                        border-radius: 10px;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+
+                p{
+                    max-width: fit-content;
+                    font-family: 'Poppins', sans-serif;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        .pagination{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+            padding-bottom: 24px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            .page-item {
+                cursor: pointer;
+                background-color:#003049;
+                border: 1px solid black;
+                color: whitesmoke;
+                width: 20px;
+                height: 20px;
+                padding: 4px;
+                border-radius: 50%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+
+}
