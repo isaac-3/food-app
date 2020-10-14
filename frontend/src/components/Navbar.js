@@ -1,5 +1,4 @@
 import React from "react";
-import "./Navbar.css";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import { IconButton, Button} from "@material-ui/core";
@@ -14,6 +13,7 @@ const NavBar = () => {
                         <MenuRoundedIcon />
                     </IconButton>
                 </div>
+                <div><h1>Yummy!</h1></div>
                 <div className="navbar__right">
                 <div className="overlay-effect">
                     <Button>
@@ -21,10 +21,9 @@ const NavBar = () => {
                         LOGIN
                     </Button>
                 </div>
-                {/* <div className="divider"></div> */}
                 <div className="overlay-effect">
                     <Button>
-                        LOGOUT
+                       SignUp
                         <PersonOutlineRoundedIcon style={{fontSize: "16px"}}/>
                     </Button>
                 </div>
