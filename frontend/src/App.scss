@@ -44,6 +44,16 @@ $primaryFont: 'Poppins', sans-serif;
         background-color:  $blueColor;
         height: 8vh;
 
+        .login__manue{
+                margin-top: 16px;
+                border: 1px solid lightgrey;
+                outline-width: 0;
+                flex: 1;
+                border-radius: 30px;
+                padding: 10px;
+                font-family: 'Poppins', sans-serif;
+        }
+
         .navbar{
             display: flex;
             justify-content: space-around;
@@ -187,6 +197,10 @@ $primaryFont: 'Poppins', sans-serif;
         flex-direction: column;
         justify-content: space-around;
 
+        .mustLogin__alert{
+            margin-top: 60px;
+        }
+
         .meal__header{
             padding-top: 24px;
             text-align: center;
@@ -220,7 +234,6 @@ $primaryFont: 'Poppins', sans-serif;
         }
 
         .meal__details{
-            // padding-top: 8px;
             display: flex;
             justify-content: space-evenly;
             font-family: $primaryFont;

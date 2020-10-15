@@ -1,10 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import bcrypt from 'bcryptjs'
-
-//dbs
-import Users from './dbUser.js'
+import auth from './routes/auth.js'
+import opts from './routes/userOpts.js'
 
 const app = express()
 const port = process.env.PORT || 9000
@@ -23,40 +21,8 @@ mongoose.connection.on('connected',()=>{
     console.log('mongoose connected')
 })
 
-app.get('/',(req, res) => {
-    res.status(200).send("hello world")
-})
+app.use(auth)
+app.use(opts)
 
-app.post('/signup', (req, res) => {
-    const {name, email, password} = req.body
-    if( !email || !password || !name){
-        return res.status(422).json({error: 'Pls add all the fields'})
-    }
-    Users.findOne({email: email})
-    .then((savedUser)=>{
-        if(savedUser){
-            return res.json({error: 'User already exisit with that email'})
-        }
-        bcrypt.hash(password, 12)
-        .then(hashedpassword => {
-            const user = new Users({
-                email,
-                password: hashedpassword,
-                name,
-            })
-            user.save()
-            .then(user=>{
-                console.log(user)
-                res.json({message: 'saved seccusfullt'})
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        })
-    })
-    .catch(err => {
-        console.log(err)
-    })
-})
 
 app.listen(port,() => console.log(`listening on port${port}`))

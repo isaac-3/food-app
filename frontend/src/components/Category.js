@@ -17,7 +17,6 @@ const Category = () => {
         const fetchDishes = async () => {
             setLoading(true);
             const res = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${catId}`)
-            console.log(res)
             setDishes(res.data.meals);
             setLoading(false);
           };

@@ -1,13 +1,20 @@
-import { Chip, IconButton } from '@material-ui/core';
+import { Chip, IconButton, Snackbar } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
+import { useSelector, useDispatch } from 'react-redux'
+import Alert from '@material-ui/lab/Alert';
+import axios from './axios';
 
 const Meal = () => {
 
     const {mealId} = useParams()
     const [currMeal, setCurrMeal] = useState([])
+    const [fields__open, setFieldOpen] = useState(false)
+    let loguser = useSelector( state => state.user)
+    let dispatch = useDispatch()
+
     const ing = []
     let ingObj = {}
 
@@ -24,15 +31,54 @@ const Meal = () => {
             ing.push(value)
         }
     }
-    console.log(currMeal)
 
     let halfwayThrough = Math.floor(ing.length / 2)
     let arrayFirstHalf = ing.slice(0, halfwayThrough);
     let arraySecondHalf = ing.slice(halfwayThrough, ing.length);
     arrayFirstHalf.forEach((key, i) => ingObj[key] = arraySecondHalf[i])
 
+    const handleFieldClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setFieldOpen(false)
+    };
+
+    const handleAddRec = () => {
+        if(!loguser._id){
+            setFieldOpen(true)
+        }
+        let newRec = {
+            id: currMeal.idMeal,
+            img: currMeal.strMealThumb,
+            name: currMeal.strMeal
+        }
+        axios.patch('/addRec', {
+            recipie: newRec
+            },
+            {
+            headers: {
+                "Authorization": "Bearer "+ loguser.token
+            }
+        })
+        .then(res=> {
+            dispatch({ type: "ADD_REC", recipie: res.data.recipies})
+        })
+    }
+
+    const checkColor = loguser.recipies.some(e => e.id === mealId) ? "red" : "black"
+
     return (
         <div className="meal">
+            <Snackbar 
+            open={fields__open} 
+            autoHideDuration={3000} 
+            onClose={handleFieldClose} 
+            anchorOrigin={{ vertical: "top", horizontal: "center" }} className="mustLogin__alert">
+                <Alert severity="error">
+                    Must Be Logged In
+                </Alert>
+            </Snackbar>
             <div className="meal__header">
                 <img className="meal__img" src={currMeal.strMealThumb} alt="meal"/>
                 <div className="meal__info">
@@ -44,9 +90,10 @@ const Meal = () => {
                     {currMeal.strTags && <Chip size="small" label={currMeal.strTags} />}
                     <div className="meal__opts">
                         Add to my recipies!
-                        <IconButton>
-                            <CheckCircleRoundedIcon/>
-                        </IconButton><br/>
+                        <IconButton onClick={() => handleAddRec()}>
+                            <CheckCircleRoundedIcon style={{color: checkColor}}/>
+                        </IconButton>
+                        <br/>
                         Love it?
                         <IconButton>
                             <FavoriteIcon/>
