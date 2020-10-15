@@ -21,6 +21,8 @@ mongoose.connection.on('connected',()=>{
     console.log('mongoose connected')
 })
 
+mongoose.set('useFindAndModify', false); // for findoneandupdate
+
 app.use(auth)
 app.use(opts)
 

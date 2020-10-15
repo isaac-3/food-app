@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
-import { IconButton, Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions} from "@material-ui/core";
+import { IconButton, Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Popper, Paper, ClickAwayListener, MenuItem, MenuList} from "@material-ui/core";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import axios from './axios'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link, useHistory } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -13,9 +14,13 @@ const NavBar = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [menuOpts, setMenuOpts] = useState(false)
+    const [anc, setAnc] = useState(null);
+    let history = useHistory()
     
     let dispatch = useDispatch()
     let loguser = useSelector( state => state.user)
+    let currCategory = useSelector( state => state.category)
 
     const handleSignUpClose = () => {
         setSignUp(false)
@@ -58,11 +63,49 @@ const NavBar = () => {
         })
     }
 
+    const handleClose = () => {
+        setMenuOpts(false);
+    };
+
+    const openOpts = (a) => {
+        setAnc(a)
+        setMenuOpts(true)
+    }
+
+    const logOut = () => {
+        dispatch({ type: "LOG_OUT" })
+        dispatch({ type: "UNSET_CATEGORY"})
+        if(window.location.href === "http://localhost:3000/myRecipies"){
+            history.push("/")
+        }
+    }
     
   return (
     <div className="navbar__cont">
+            <Popper
+                className="userOpts"
+                open={menuOpts}
+                disablePortal
+                placement="bottom-start"
+                anchorEl={anc}
+            >
+                <Paper>
+                <ClickAwayListener onClickAway={() => handleClose()}>
+                    <MenuList autoFocusItem={true}>
+                    <MenuItem onClick={() => {
+                    history.push('/')
+                    dispatch({ type: "UNSET_CATEGORY"})
+                    }}
+                    >All Categories</MenuItem>
+                    {currCategory &&
+                    <MenuItem onClick={() => history.push(`/category/${currCategory}`)}
+                    >Previous Category</MenuItem>}
+                    </MenuList>
+                </ClickAwayListener>
+                </Paper>
+            </Popper>
             <Dialog open={signUpInput} onClose={() => handleSignUpClose()} aria-labelledby="form-dialog-title" style={{textAlign: "center"}}>
-                <DialogTitle style={{color: "#D62828"}}>LOGIN</DialogTitle>
+                <DialogTitle style={{color: "#D62828"}}>SIGN UP</DialogTitle>
                 <DialogContent>
                     <div style={{display: "flex", flexDirection: "column", width: "300px"}}>
                         <input
@@ -97,7 +140,7 @@ const NavBar = () => {
                     <Button 
                     onClick={() => handleSignUp()}
                         color="primary">
-                        LOGIN
+                        SIGN UP
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -136,7 +179,7 @@ const NavBar = () => {
             </Dialog>
         <div className="navbar">
                 <div>
-                    <IconButton>
+                    <IconButton onClick={(e) => openOpts(e.target)}>
                         <MenuRoundedIcon />
                     </IconButton>
                 </div>
@@ -144,15 +187,15 @@ const NavBar = () => {
                 {loguser._id ? (
                 <div className="navbar__right">
                     <div className="overlay-effect">
-                        <Button>
+                        <Button 
+                        onClick={() => history.push('/myRecipies')}
+                        >
                             <PersonRoundedIcon style={{fontSize: "16px"}}/>
                             MY RECIPIES
                         </Button>
                     </div>
                     <div className="overlay-effect">
-                        <Button onClick={() =>{
-                            dispatch({ type: "LOG_OUT" })
-                        }}>
+                        <Button onClick={() =>logOut()}>
                             LOGOUT
                             <PersonOutlineRoundedIcon style={{fontSize: "16px"}}/>
                         </Button>

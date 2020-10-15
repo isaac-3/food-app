@@ -11,7 +11,7 @@ const Pagination = ({ dishPerPage, totalDishes, paginate }) => {
     <nav>
       <ul className='pagination'>
         {pageNumbers.map(number => (
-            <span onClick={() => paginate(number)} className='page-item'>
+            <span onClick={() => paginate(number)} className='page-item' key={number}>
               {number}
             </span>
         ))}

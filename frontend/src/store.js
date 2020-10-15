@@ -8,7 +8,8 @@ const noUserState = {
 }
 
 const initialState = {
-    user: {id: undefined}
+    user: {id: undefined},
+    category: undefined
 }
 
 const reducer = (currentState, action) => {
@@ -34,6 +35,45 @@ const reducer = (currentState, action) => {
                 }
             }
         break;
+        case 'REMOVE_REC':
+            return {
+                ...currentState,
+                user: {
+                    ...currentState.user,
+                    recipies: action.recipie
+                }
+            }
+        break;
+        case 'ADD_LIKE':
+            return {
+                ...currentState,
+                user: {
+                    ...currentState.user,
+                    likes: action.like
+                }
+            }
+        break;
+        case 'REMOVE_LIKE':
+            return {
+                ...currentState,
+                user: {
+                    ...currentState.user,
+                    likes: action.like
+                }
+            }
+        break;
+        case 'SET_CATEGORY':
+            return {
+                ...currentState,
+                category: action.category
+            }
+        break;
+        case 'UNSET_CATEGORY':
+            return {
+                ...currentState,
+                category: undefined
+            }
+        break;
     }
     return currentState
 }
@@ -41,7 +81,7 @@ const reducer = (currentState, action) => {
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['user']
+    whitelist: ['user', 'category']
 
 }
 

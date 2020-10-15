@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    recipies: []
+    recipies: [],
+    likes: []
 })
 
 export default mongoose.model('users', userSchema)

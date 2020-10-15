@@ -27,7 +27,7 @@ router.post('/signup', (req, res) => {
             user.save()
             .then(user=>{
                 const token = jwt.sign({_id: user._id}, JWT_SECRET)
-                res.json({_id: user._id, name: user.name, email: user.email, recipies: user.recipies, token})
+                res.json({_id: user._id, name: user.name, email: user.email, recipies: user.recipies, likes: user.likes, token})
             })
             .catch(err => {
                 console.log(err)
@@ -53,8 +53,8 @@ router.post('/signin', (req, res) => {
         .then(doMatch => {
             if(doMatch){
                 const token = jwt.sign({_id: savedUser._id}, JWT_SECRET)
-                const {_id, name, email, recipies} = savedUser
-                res.json({user: {_id, name, email, recipies, token}})
+                const {_id, name, email, recipies, likes} = savedUser
+                res.json({user: {_id, name, email, recipies, likes, token}})
             }else{
                 return res.status(422).json({error: 'invalid email or pssword'})
             }
