@@ -31,8 +31,8 @@ const Body = () => {
             </div>
             <div className="body__cats">
                 {cats.map(cat=>(
-                    <Link to={`/category/${cat.strCategory}`} style={{ textDecoration: 'none' }}>
-                        <div className="body__cats__indiv" key={cat.idCategory}>
+                    <Link to={`/category/${cat.strCategory}`} style={{ textDecoration: 'none' }} key={cat.idCategory}>
+                        <div className="body__cats__indiv" >
                             <img src={cat.strCategoryThumb} alt="category"/>
                             <p>{cat.strCategory}</p>
                         </div>

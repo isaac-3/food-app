@@ -13,6 +13,7 @@ const Meal = () => {
     const [currMeal, setCurrMeal] = useState([])
     const [fields__open, setFieldOpen] = useState(false)
     let loguser = useSelector( state => state.user)
+    // let x = useSelector( state => state.category)
     let dispatch = useDispatch()
 
     const ing = []
@@ -23,6 +24,7 @@ const Meal = () => {
         .then(res=>res.json())
         .then(res => {
           setCurrMeal(res.meals[0])
+          dispatch({ type: "SET_CATEGORY", category: res.meals[0].strCategory})
         })
     },[mealId])
     
@@ -44,29 +46,74 @@ const Meal = () => {
         setFieldOpen(false)
     };
 
-    const handleAddRec = () => {
+    const handleRecipie = () => {
         if(!loguser._id){
             setFieldOpen(true)
         }
-        let newRec = {
-            id: currMeal.idMeal,
-            img: currMeal.strMealThumb,
-            name: currMeal.strMeal
-        }
-        axios.patch('/addRec', {
-            recipie: newRec
-            },
-            {
-            headers: {
-                "Authorization": "Bearer "+ loguser.token
+        if(loguser.recipies && loguser.recipies.some(e => e.id === mealId)){
+            axios.patch('/removeRec', {
+                mealId
+                },
+                {
+                headers: {
+                    "Authorization": "Bearer "+ loguser.token
+                }
+            })
+            .then(res=> {
+                dispatch({ type: "REMOVE_REC", recipie: res.data.recipies})
+            })
+        }else{
+            let newRec = {
+                id: currMeal.idMeal,
+                img: currMeal.strMealThumb,
+                name: currMeal.strMeal
             }
-        })
-        .then(res=> {
-            dispatch({ type: "ADD_REC", recipie: res.data.recipies})
-        })
+            axios.patch('/addRec', {
+                recipie: newRec
+                },
+                {
+                headers: {
+                    "Authorization": "Bearer "+ loguser.token
+                }
+            })
+            .then(res=> {
+                dispatch({ type: "ADD_REC", recipie: res.data.recipies})
+            })
+        }
     }
-
-    const checkColor = loguser.recipies.some(e => e.id === mealId) ? "red" : "black"
+    const handleLike = () => {
+        if(!loguser._id){
+            setFieldOpen(true)
+        }
+        if(loguser.likes && loguser.likes.includes(mealId)){
+            axios.patch('/removeLike', {
+                mealId
+                },
+                {
+                headers: {
+                    "Authorization": "Bearer "+ loguser.token
+                }
+            })
+            .then(res=> {
+                dispatch({ type: "REMOVE_LIKE", like: res.data.likes})
+            })
+        }else{
+            axios.patch('/addLike', {
+                id: currMeal.idMeal
+                },
+                {
+                headers: {
+                    "Authorization": "Bearer "+ loguser.token
+                }
+            })
+            .then(res=> {
+                dispatch({ type: "ADD_LIKE", like: res.data.likes})
+            })
+        }
+    }
+    
+    const checkColor = loguser.recipies === undefined ? null : loguser.recipies.some(e => e.id === mealId) ? "green" : "black"
+    const likeColor = loguser.likes === undefined ? null : loguser.likes.includes(mealId) ? "red" : "black"
 
     return (
         <div className="meal">
@@ -90,13 +137,13 @@ const Meal = () => {
                     {currMeal.strTags && <Chip size="small" label={currMeal.strTags} />}
                     <div className="meal__opts">
                         Add to my recipies!
-                        <IconButton onClick={() => handleAddRec()}>
+                        <IconButton onClick={() => handleRecipie()}>
                             <CheckCircleRoundedIcon style={{color: checkColor}}/>
                         </IconButton>
                         <br/>
                         Love it?
-                        <IconButton>
-                            <FavoriteIcon/>
+                        <IconButton onClick={() => handleLike()}>
+                            <FavoriteIcon style={{color: likeColor}}/>
                         </IconButton>
                     </div>
                 </div>

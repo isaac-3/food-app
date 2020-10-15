@@ -255,4 +255,51 @@ $primaryFont: 'Poppins', sans-serif;
 
     }
 
+    .myRecipiesCont{
+        background-color: $primaryColor;
+        height: $containerHeight;
+
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        
+        // padding-left: 18%;
+        // padding-right: 18%;
+        // padding-top: 20px;
+        .innerCont{
+            display: flex;
+            button{
+                left: 20px;
+                color: $secondaryColor;
+                &:hover{
+                    background-color: transparent !important;
+                }
+            }
+        }
+
+        .indevRec{
+            cursor: pointer;
+            color: $secondaryColor;
+            font-weight: bolder;
+            padding: 4px;
+            background-color: #fff5d6;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+            font-family: $primaryFont;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 8px 0 8px 0;
+
+            img{
+                @include imgProps(150px, 100px, 10px)
+            }
+            h1{
+                margin: 0 8px 0 8px;
+            }
+        }
+    }
+
 }
