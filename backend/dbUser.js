@@ -12,8 +12,9 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
+    recipies: []
 })
 
 export default mongoose.model('users', userSchema)
