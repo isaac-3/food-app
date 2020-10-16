@@ -24,9 +24,16 @@ const MyRecipies = () => {
         })
     }
 
+    let contHeight = 0
+    if(loguser.recipies){
+        contHeight = loguser.recipies.length
+    }
+
+    let ch = contHeight >= 6 ? "100%" : "92vh"
+
 
     return (
-        <div className="myRecipiesCont">
+        <div className="myRecipiesCont" style={{height: ch}}>
             {loguser.recipies && loguser.recipies.map( recipie => (
                 <div className="innerCont" key={recipie.id}>
                     <Link to={`/dish/${recipie.id}`} style={{ textDecoration: 'none' }}>

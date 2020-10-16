@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import auth from './routes/auth.js'
 import opts from './routes/userOpts.js'
+import recipies from './routes/recipies.js'
 
 const app = express()
 const port = process.env.PORT || 9000
@@ -25,6 +26,7 @@ mongoose.set('useFindAndModify', false); // for findoneandupdate
 
 app.use(auth)
 app.use(opts)
+app.use(recipies)
 
 
 app.listen(port,() => console.log(`listening on port${port}`))

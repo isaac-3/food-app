@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Category from './components/Category';
 import Meal from './components/Meal';
 import MyRecipies from './components/MyRecipies';
+import CreateRecipie from './components/CreateRecipie';
 
 function App() {
   
@@ -15,7 +16,7 @@ function App() {
       <NavBar/>
         <Switch>
           <Route exact path="/myRecipies" component={MyRecipies}/>
-
+          <Route exact path="/createRecipie" component={CreateRecipie}/>
           <Route exact path="/" component={Body}/>
           <Route exact path="/category/:catId" component={Category}/>
           <Route exact path="/dish/:mealId" component={Meal}/>

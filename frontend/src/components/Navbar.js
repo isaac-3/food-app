@@ -183,7 +183,7 @@ const NavBar = () => {
                         <MenuRoundedIcon />
                     </IconButton>
                 </div>
-                <div><h1>Yummy!</h1></div>
+                <div className="nav__title"><h1>Yummy!</h1></div>
                 {loguser._id ? (
                 <div className="navbar__right">
                     <div className="overlay-effect">
@@ -191,7 +191,15 @@ const NavBar = () => {
                         onClick={() => history.push('/myRecipies')}
                         >
                             <PersonRoundedIcon style={{fontSize: "16px"}}/>
-                            MY RECIPIES
+                            SAVED RECIPIES
+                        </Button>
+                    </div>
+                    <div className="overlay-effect">
+                        <Button 
+                        onClick={() => history.push('/createRecipie')}
+                        >
+                            <PersonRoundedIcon style={{fontSize: "16px"}}/>
+                            CREATE A RECIPIE
                         </Button>
                     </div>
                     <div className="overlay-effect">
