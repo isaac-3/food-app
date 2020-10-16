@@ -38,6 +38,42 @@ $primaryFont: 'Poppins', sans-serif;
     border-radius: $borderRad;
 }
 
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg) translate3d(0,0,0);
+    }
+    25%{
+        transform: rotate(3deg) translate3d(0,0,0);
+    }
+    50%{
+        transform: rotate(-3deg) translate3d(0,0,0);
+    }
+    75%{
+        transform: rotate(1deg) translate3d(0,0,0);
+    }
+    100%{
+        transform: rotate(0deg) translate3d(0,0,0);
+    }
+}
+
+@keyframes storm{
+    0%{
+        transform: translate3d(0,0,0) translateZ(0);
+    }
+    25%{
+        transform: translate3d(4px,0,0) translateZ(0);
+    }
+    50%{
+        transform: translate3d(-3px,0,0) translateZ(0);
+    }
+    75%{
+        transform: translate3d(2px,0,0) translateZ(0);
+    }
+    100%{
+        transform: translate3d(0,0,0) translateZ(0);
+    }
+}
+
 .App{
 
     .navbar__cont{
@@ -59,8 +95,10 @@ $primaryFont: 'Poppins', sans-serif;
             justify-content: space-around;
             font-family: $primaryFont;
             
-            h1{
+            .nav__title {
                 color: $secondaryColor;
+                flex: 1;
+                text-align: center;
             }
 
             button{
@@ -173,6 +211,7 @@ $primaryFont: 'Poppins', sans-serif;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+
             .page-item {
                 cursor: pointer;
                 background-color: $blueColor;
@@ -191,7 +230,7 @@ $primaryFont: 'Poppins', sans-serif;
     }
 
     .meal{
-        height: $containerHeight;
+        // height: $containerHeight;
         background-color:$primaryColor;
         display: flex;
         flex-direction: column;
@@ -260,7 +299,7 @@ $primaryFont: 'Poppins', sans-serif;
         height: $containerHeight;
 
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         flex-direction: column;
         align-items: center;
         
@@ -275,6 +314,13 @@ $primaryFont: 'Poppins', sans-serif;
                 &:hover{
                     background-color: transparent !important;
                 }
+            }
+            &:hover{
+                animation: rotate 0.7s ease-in-out both;
+            }
+            &:hover h1{
+                animation: storm 0.7s ease-in-out both;
+                animation-delay: 0.2s;
             }
         }
 
@@ -291,7 +337,7 @@ $primaryFont: 'Poppins', sans-serif;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin: 8px 0 8px 0;
+            margin: 16px 0 16px 0;
 
             img{
                 @include imgProps(150px, 100px, 10px)
@@ -300,6 +346,37 @@ $primaryFont: 'Poppins', sans-serif;
                 margin: 0 8px 0 8px;
             }
         }
+    }
+
+    .createRecipie{
+        display: flex;
+        height: $containerHeight;
+        // height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-family: $primaryFont;
+        // background-color: green;
+
+        .catInput{
+            margin: 4px;
+            width: 33%;
+            border: 1px solid $blueColor;
+            outline-width: 0;
+            border-radius: 30px;
+            padding: 10px;
+        }
+
+        .ing__cont{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .submit__rec{
+            background-color: $secondaryColor !important;
+            color: $blueColor;
+        }
+
     }
 
 }

@@ -74,6 +74,18 @@ const reducer = (currentState, action) => {
                 category: undefined
             }
         break;
+        case 'REMOVE_MEAL':
+            const newSet = currentState.user.recipies.filter(rec => {
+                return rec.id !== action.meal
+            })
+            return {
+                ...currentState,
+                user: {
+                    ...currentState.user,
+                    recipies: newSet
+                }
+            }
+        break;
     }
     return currentState
 }

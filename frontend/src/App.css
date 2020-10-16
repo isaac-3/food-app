@@ -1,6 +1,168 @@
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+            transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    -webkit-transform: rotate(3deg) translate3d(0, 0, 0);
+            transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: rotate(-3deg) translate3d(0, 0, 0);
+            transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
+            transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+            transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+            transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    -webkit-transform: rotate(3deg) translate3d(0, 0, 0);
+            transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: rotate(-3deg) translate3d(0, 0, 0);
+            transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    -webkit-transform: rotate(1deg) translate3d(0, 0, 0);
+            transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+            transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes storm {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+            transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    -webkit-transform: translate3d(4px, 0, 0) translateZ(0);
+            transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translate3d(-3px, 0, 0) translateZ(0);
+            transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    -webkit-transform: translate3d(2px, 0, 0) translateZ(0);
+            transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+            transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+
+@keyframes storm {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+            transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    -webkit-transform: translate3d(4px, 0, 0) translateZ(0);
+            transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translate3d(-3px, 0, 0) translateZ(0);
+            transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    -webkit-transform: translate3d(2px, 0, 0) translateZ(0);
+            transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+            transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+
+.App .navbar__cont {
+  background-color: #003049;
+  height: 8vh;
+}
+
+.App .navbar__cont .login__manue {
+  margin-top: 16px;
+  border: 1px solid lightgrey;
+  outline-width: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 30px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App .navbar__cont .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+}
+
+.App .navbar__cont .navbar .nav__title {
+  color: #D62828;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+}
+
+.App .navbar__cont .navbar button {
+  color: whitesmoke;
+}
+
+.App .navbar__cont .navbar .navbar__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .navbar__cont .navbar .navbar__right .overlay-effect button {
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  margin-right: 4px;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 20px;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  background-color: transparent;
+}
+
+.App .navbar__cont .navbar .navbar__right .overlay-effect:hover button {
+  cursor: pointer;
+  background-color: #D62828;
+}
+
+.App .navbar > div {
+  margin-top: 8px;
+}
+
 .App .body {
   background-color: #EAE2B7;
-  height: 100vh;
+  height: 92vh;
   text-align: center;
 }
 
@@ -25,18 +187,32 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 18%;
+  padding-right: 18%;
+  padding-top: 20px;
 }
 
 .App .body .body__cats__indiv {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 14%;
-          flex: 1 0 14%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
   cursor: pointer;
-  margin: 8px 0 8px 0;
+  color: #D62828;
+  font-weight: bolder;
+  padding: 4px;
+  text-align: center;
+  background-color: #fff5d6;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 16px 8px 16px 8px;
 }
 
 .App .body .body__cats__indiv img {
@@ -47,9 +223,13 @@
   border-radius: 10px;
 }
 
+.App .body .body__cats__indiv p {
+  font-family: "Poppins", sans-serif;
+}
+
 .App .category {
   background-color: #EAE2B7;
-  height: 100vh;
+  height: 92vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,8 +253,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 18%;
+  padding-right: 18%;
   padding-top: 20px;
 }
 
@@ -83,8 +263,12 @@
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
   cursor: pointer;
+  color: #D62828;
+  font-weight: bolder;
+  padding: 4px;
   text-align: center;
-  background-color: #FCBF49;
+  background-color: #fff5d6;
+  border-radius: 10px;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -99,30 +283,250 @@
 
 .App .category .category__cont .cat__dish img:hover {
   border-radius: 10px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .App .category .category__cont .cat__dish p {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  font-family: "Poppins", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .App .category .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #65baff;
   width: 50%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  padding-bottom: 24px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .App .category .pagination .page-item {
   cursor: pointer;
+  background-color: #003049;
+  border: 1px solid black;
+  color: whitesmoke;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.App .category .pagination .page-item:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.App .meal {
+  background-color: #EAE2B7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.App .meal .mustLogin__alert {
+  margin-top: 60px;
+}
+
+.App .meal .meal__header {
+  padding-top: 24px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .meal .meal__header img {
+  width: auto;
+  max-width: 350px;
+  height: auto;
+  max-height: 300px;
+  border-radius: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.App .meal .meal__header .meal__info {
+  margin-left: 16px;
+}
+
+.App .meal .meal__header .meal__info .cat__span {
+  color: #D62828;
+}
+
+.App .meal .meal__header .meal__info a {
+  text-decoration: none;
+  color: #003049;
+}
+
+.App .meal .meal__header .meal__info .meal__opts {
+  font-weight: bolder;
+  color: #003049;
+}
+
+.App .meal .meal__header .meal__info .meal__opts button {
+  margin-left: 4px;
+}
+
+.App .meal .meal__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-family: "Poppins", sans-serif;
+}
+
+.App .meal .meal__details .meal__instructions {
+  width: 50%;
+}
+
+.App .meal .meal__details .meal__ingredients p {
+  color: #003049;
+}
+
+.App .meal .meal__details .meal__ingredients span {
+  color: #D62828;
+  font-weight: bolder;
+}
+
+.App .myRecipiesCont {
+  background-color: #EAE2B7;
+  height: 92vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .myRecipiesCont .innerCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App .myRecipiesCont .innerCont button {
+  left: 20px;
+  color: #D62828;
+}
+
+.App .myRecipiesCont .innerCont button:hover {
+  background-color: transparent !important;
+}
+
+.App .myRecipiesCont .innerCont:hover {
+  -webkit-animation: rotate 0.7s ease-in-out both;
+          animation: rotate 0.7s ease-in-out both;
+}
+
+.App .myRecipiesCont .innerCont:hover h1 {
+  -webkit-animation: storm 0.7s ease-in-out both;
+          animation: storm 0.7s ease-in-out both;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.App .myRecipiesCont .indevRec {
+  cursor: pointer;
+  color: #D62828;
+  font-weight: bolder;
+  padding: 4px;
+  background-color: #fff5d6;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  font-family: "Poppins", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 16px 0 16px 0;
+}
+
+.App .myRecipiesCont .indevRec img {
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 100px;
+  border-radius: 10px;
+}
+
+.App .myRecipiesCont .indevRec h1 {
+  margin: 0 8px 0 8px;
+}
+
+.App .createRecipie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 92vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.App .createRecipie .catInput {
+  margin: 4px;
+  width: 33%;
+  border: 1px solid #003049;
+  outline-width: 0;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.App .createRecipie .ing__cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.App .createRecipie .submit__rec {
+  background-color: #D62828 !important;
+  color: #003049;
 }
 /*# sourceMappingURL=App.css.map */

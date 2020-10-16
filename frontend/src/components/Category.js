@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from "react-router-dom";
 import axios from 'axios'
+import axios_backend from './axios'
 import CategoryPage from './CategoryPage';
 import Pagination from './Pagination';
 
@@ -17,12 +18,18 @@ const Category = () => {
         const fetchDishes = async () => {
             setLoading(true);
             const res = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${catId}`)
-            setDishes(res.data.meals);
+
+            const res2 = await axios_backend.get(`/indivCategory/${catId}`)
+
+            let allDishes = [...res.data.meals, ...res2.data.recipies]
+
+            setDishes(allDishes)
             setLoading(false);
           };
       
           fetchDishes();
     },[])
+    
     if(!dishes){
         return <h1>loading</h1>
     }
