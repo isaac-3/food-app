@@ -10,7 +10,7 @@ const MyRecipies = () => {
     let loguser = useSelector( state => state.user)
     let dispatch = useDispatch()
 
-    const handleRecipie = (mealId) => {    
+    const handleRecipie = (mealId) => {   
         axios.patch('/removeRec', {
             mealId
             },
@@ -37,8 +37,8 @@ const MyRecipies = () => {
             {loguser.recipies && loguser.recipies.map( recipie => (
                 <div className="innerCont" key={recipie.id}>
                     <Link to={`/dish/${recipie.id}`} style={{ textDecoration: 'none' }}>
-                        <div className="indevRec" >
-                            <img src={recipie.img}/>
+                        <div className="indevRec">
+                            <img src={recipie.img}  alt="my__recipie"/>
                             <h1>{recipie.name}</h1>
                         </div>
                     </Link>

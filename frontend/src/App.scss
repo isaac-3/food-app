@@ -94,11 +94,15 @@ $primaryFont: 'Poppins', sans-serif;
             display: flex;
             justify-content: space-around;
             font-family: $primaryFont;
+
+            .navbar__opts{
+                color: whitesmoke;
+            }
             
             .nav__title {
                 color: $secondaryColor;
-                flex: 1;
                 text-align: center;
+                padding-left: 270px; //center title
             }
 
             button{
@@ -120,7 +124,6 @@ $primaryFont: 'Poppins', sans-serif;
                         border-radius: 20px;
                         transition: .5s ease-in-out;
                         background-color: transparent;
-                        // overflow:hidden;
                     }
 
                     &:hover button {
@@ -141,7 +144,7 @@ $primaryFont: 'Poppins', sans-serif;
         height: $containerHeight;
         text-align: center;
         .body__search_box{
-            padding-top: 24px;
+            padding-top: 48px;
             input{
                 outline-width: 0;
                 border-radius: 30px;
@@ -151,12 +154,13 @@ $primaryFont: 'Poppins', sans-serif;
             button{
                 border: none;
                 outline-width: 0;
-                color: #65baff;
+                color: $secondaryColor;
             }
         }
         
         .body__cats{
             @include flexCenter();
+            margin-top: 50px;
         }
         
         .body__cats__indiv{
@@ -230,7 +234,6 @@ $primaryFont: 'Poppins', sans-serif;
     }
 
     .meal{
-        // height: $containerHeight;
         background-color:$primaryColor;
         display: flex;
         flex-direction: column;
@@ -292,6 +295,23 @@ $primaryFont: 'Poppins', sans-serif;
             }
         }
 
+        .img-magnifier-glass {
+            position: absolute;
+            z-index: 3;
+            border: 3px solid #000;
+            border-radius: 40%;
+            cursor: pointer;
+            /*Set the size of the magnifier glass:*/
+            width: 100px;
+            height: 100px;
+            opacity:0;
+            pointer-events:none;
+            &:hover {
+                opacity:1;
+                pointer-events:initial;
+              }
+          }
+
     }
 
     .myRecipiesCont{
@@ -303,9 +323,6 @@ $primaryFont: 'Poppins', sans-serif;
         flex-direction: column;
         align-items: center;
         
-        // padding-left: 18%;
-        // padding-right: 18%;
-        // padding-top: 20px;
         .innerCont{
             display: flex;
             button{
@@ -351,12 +368,16 @@ $primaryFont: 'Poppins', sans-serif;
     .createRecipie{
         display: flex;
         height: $containerHeight;
-        // height: 100%;
+        font-family: $primaryFont;
+        background-color: $primaryColor;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        font-family: $primaryFont;
-        // background-color: green;
+
+        #combo-box-demo{
+            background-color: #f0eddf;
+            outline-width: 0;
+        }
 
         .catInput{
             margin: 4px;
@@ -365,6 +386,7 @@ $primaryFont: 'Poppins', sans-serif;
             outline-width: 0;
             border-radius: 30px;
             padding: 10px;
+            background-color: #f0eddf;
         }
 
         .ing__cont{
@@ -373,7 +395,7 @@ $primaryFont: 'Poppins', sans-serif;
         }
 
         .submit__rec{
-            background-color: $secondaryColor !important;
+            background-color: $orangeColor !important;
             color: $blueColor;
         }
 

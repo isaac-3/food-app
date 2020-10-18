@@ -14,7 +14,7 @@ const Meal = () => {
     const [currMeal, setCurrMeal] = useState([])
     const [fields__open, setFieldOpen] = useState(false)
     let loguser = useSelector( state => state.user)
-    // let x = useSelector( state => state.category)
+
     let dispatch = useDispatch()
     let history = useHistory()
 
@@ -142,7 +142,7 @@ const Meal = () => {
     const checkColor = loguser.recipies === undefined ? null : loguser.recipies.some(e => e.id === mealId) ? "green" : "black"
     const likeColor = loguser.likes === undefined ? null : loguser.likes.includes(mealId) ? "red" : "black"
     const mapEntries = mealId.length === 24 ? currMeal.ingredients : ingObj
-    
+
     return (
         <div className="meal" style={{height: hhh}}>
             <Snackbar 

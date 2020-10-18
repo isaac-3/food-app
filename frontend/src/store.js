@@ -19,13 +19,11 @@ const reducer = (currentState, action) => {
                 ...currentState,
                 user: action.user
             }
-        break;
         case 'LOG_OUT':
             return {
                 ...currentState,
                 user: noUserState.user
             }
-        break;
         case 'ADD_REC':
             return {
                 ...currentState,
@@ -34,7 +32,6 @@ const reducer = (currentState, action) => {
                     recipies: action.recipie
                 }
             }
-        break;
         case 'REMOVE_REC':
             return {
                 ...currentState,
@@ -43,7 +40,6 @@ const reducer = (currentState, action) => {
                     recipies: action.recipie
                 }
             }
-        break;
         case 'ADD_LIKE':
             return {
                 ...currentState,
@@ -52,7 +48,6 @@ const reducer = (currentState, action) => {
                     likes: action.like
                 }
             }
-        break;
         case 'REMOVE_LIKE':
             return {
                 ...currentState,
@@ -61,19 +56,16 @@ const reducer = (currentState, action) => {
                     likes: action.like
                 }
             }
-        break;
         case 'SET_CATEGORY':
             return {
                 ...currentState,
                 category: action.category
             }
-        break;
         case 'UNSET_CATEGORY':
             return {
                 ...currentState,
                 category: undefined
             }
-        break;
         case 'REMOVE_MEAL':
             const newSet = currentState.user.recipies.filter(rec => {
                 return rec.id !== action.meal
@@ -85,7 +77,6 @@ const reducer = (currentState, action) => {
                     recipies: newSet
                 }
             }
-        break;
     }
     return currentState
 }

@@ -1,10 +1,18 @@
-import { Button, IconButton, TextField } from '@material-ui/core';
+import { Button, createMuiTheme, IconButton, TextField, ThemeProvider } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
 import axios from './axios'
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#000000',
+      },
+    },
+  });
 
 const CreateRecipie = () => {
 
@@ -15,9 +23,6 @@ const CreateRecipie = () => {
     const [instructions, setInstructions] = useState(undefined)
     let history = useHistory()
     let loguser = useSelector( state => state.user)
-
-    // const [ingredientName, setIngredientName] = useState(null)
-    // const [ingredientAmount, setIngredientAmount] = useState(null)
 
     const [fields, setFields] = useState([{ mn: undefined, ma: undefined }])
 
@@ -92,7 +97,7 @@ const CreateRecipie = () => {
             options={cats}
             getOptionLabel={(option) => option.strCategory}
             style={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label="Choose A Category" variant="outlined" />}
+            renderInput={(params) => <ThemeProvider theme={theme}><TextField {...params} label="Choose A Category" variant="outlined" /></ThemeProvider>}
             />
             <input
                 className="catInput"

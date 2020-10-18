@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
-import { IconButton, Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Popper, Paper, ClickAwayListener, MenuItem, MenuList} from "@material-ui/core";
+import { IconButton, Button, Dialog, DialogTitle, DialogContent, DialogActions, Popper, Paper, ClickAwayListener, MenuItem, MenuList} from "@material-ui/core";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import axios from './axios'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -178,12 +178,13 @@ const NavBar = () => {
                 </DialogActions>
             </Dialog>
         <div className="navbar">
-                <div>
+                <div className="navbar__opts">
                     <IconButton onClick={(e) => openOpts(e.target)}>
                         <MenuRoundedIcon />
                     </IconButton>
+                    {loguser._id && loguser.name}
                 </div>
-                <div className="nav__title"><h1>Yummy!</h1></div>
+                <div className="nav__title"><h1>The Digital Diner!</h1></div>
                 {loguser._id ? (
                 <div className="navbar__right">
                     <div className="overlay-effect">
