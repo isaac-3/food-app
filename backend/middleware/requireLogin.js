@@ -1,4 +1,3 @@
-// const { Router } = require("express")
 import jwt from 'jsonwebtoken'
 const JWT_SECRET = 'jcnfcrecetiejcne'
 

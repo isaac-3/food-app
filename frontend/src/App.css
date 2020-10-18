@@ -116,12 +116,14 @@
   font-family: "Poppins", sans-serif;
 }
 
+.App .navbar__cont .navbar .navbar__opts {
+  color: whitesmoke;
+}
+
 .App .navbar__cont .navbar .nav__title {
   color: #D62828;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   text-align: center;
+  padding-left: 270px;
 }
 
 .App .navbar__cont .navbar button {
@@ -167,7 +169,7 @@
 }
 
 .App .body .body__search_box {
-  padding-top: 24px;
+  padding-top: 48px;
 }
 
 .App .body .body__search_box input {
@@ -180,7 +182,7 @@
 .App .body .body__search_box button {
   border: none;
   outline-width: 0;
-  color: #65baff;
+  color: #D62828;
 }
 
 .App .body .body__cats {
@@ -197,6 +199,7 @@
   padding-left: 18%;
   padding-right: 18%;
   padding-top: 20px;
+  margin-top: 50px;
 }
 
 .App .body .body__cats__indiv {
@@ -413,6 +416,24 @@
   font-weight: bolder;
 }
 
+.App .meal .img-magnifier-glass {
+  position: absolute;
+  z-index: 3;
+  border: 3px solid #000;
+  border-radius: 40%;
+  cursor: pointer;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.App .meal .img-magnifier-glass:hover {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 .App .myRecipiesCont {
   background-color: #EAE2B7;
   height: 92vh;
@@ -496,6 +517,8 @@
   display: -ms-flexbox;
   display: flex;
   height: 92vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #EAE2B7;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -505,7 +528,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Poppins", sans-serif;
+}
+
+.App .createRecipie #combo-box-demo {
+  background-color: #f0eddf;
+  outline-width: 0;
 }
 
 .App .createRecipie .catInput {
@@ -515,6 +542,7 @@
   outline-width: 0;
   border-radius: 30px;
   padding: 10px;
+  background-color: #f0eddf;
 }
 
 .App .createRecipie .ing__cont {
@@ -526,7 +554,7 @@
 }
 
 .App .createRecipie .submit__rec {
-  background-color: #D62828 !important;
+  background-color: #F77F00 !important;
   color: #003049;
 }
 /*# sourceMappingURL=App.css.map */

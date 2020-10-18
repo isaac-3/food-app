@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from 'axios'
 import axios_backend from './axios'
 import CategoryPage from './CategoryPage';
@@ -43,20 +43,12 @@ const Category = () => {
 
     return (
         <div className="category">
-            {/* <div className="category__cont"> */}
             <CategoryPage dishes={currentDishes} loading={loading} />
-                    {/* <Link to={`/dish/${52874}`}>
-                        <div className="">
-                            <img src="https://www.helpguide.org/wp-content/uploads/fast-foods-candy-cookies-pastries-768.jpg" alt="category"/>
-                            <p>yum</p>
-                        </div>
-                    </Link> */}
-                <Pagination
-                    dishPerPage={dishPerPage}
-                    totalDishes={dishes.length}
-                    paginate={paginate}
-                />
-            {/* </div> */}
+            <Pagination
+                dishPerPage={dishPerPage}
+                totalDishes={dishes.length}
+                paginate={paginate}
+            />
         </div>
     );
 }

@@ -22,7 +22,7 @@ router.patch('/addRec', requireLogin, (req, res) => {
 })
 
 router.patch('/removeRec', requireLogin, (req, res) => {
-    Users.find(req.user._id, {
+    Users.findByIdAndUpdate(req.user._id, {
         $pull:{recipies: {id: req.body.mealId}}
     },{
         new: true

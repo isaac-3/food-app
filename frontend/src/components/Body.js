@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { IconButton } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Body = () => {
 
     const [cats, setCat] = useState([])
-    let history = useHistory()
 
     useEffect(()=>{
         fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -24,7 +22,7 @@ const Body = () => {
     return (
         <div className="body">
             <div className="body__search_box">
-                <input placeholder="search"/>
+                <input placeholder="Search By Name!"/>
                 <IconButton>
                     <SearchRoundedIcon/>
                 </IconButton>
@@ -38,12 +36,6 @@ const Body = () => {
                         </div>
                     </Link>
                 ))}
-                    {/* <Link to={`/category/${'Beef'}`}>
-                        <div className="body__cats__indiv">
-                            <img src="https://www.helpguide.org/wp-content/uploads/fast-foods-candy-cookies-pastries-768.jpg" alt="category"/>
-                            <p>yum</p>
-                        </div>
-                    </Link> */}
             </div>
         </div>
     );
